@@ -1,0 +1,35 @@
+<h1>Listing prototypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Eninetype</th>
+      <th>Manufacturer</th>
+      <th>Model</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prototypes.each do |prototype| %>
+      <tr>
+        <td><%= prototype.name %></td>
+        <td><%= prototype.notes %></td>
+        <td><%= prototype.eninetype %></td>
+        <td><%= prototype.manufacturer %></td>
+        <td><%= prototype.model %></td>
+        <td><%= prototype.User %></td>
+        <td><%= link_to 'Show', prototype %></td>
+        <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
+        <td><%= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prototype', new_prototype_path %>

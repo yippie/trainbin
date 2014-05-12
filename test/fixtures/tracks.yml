@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partnumber: MyString
+  notes: MyString
+  scale: MyString
+  tracktype: MyString
+  quantity: 1
+  User_id: 
+  Manufacturer_id: 
+
+two:
+  partnumber: MyString
+  notes: MyString
+  scale: MyString
+  tracktype: MyString
+  quantity: 1
+  User_id: 
+  Manufacturer_id: 

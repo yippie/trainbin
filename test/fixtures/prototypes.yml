@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  notes: MyString
+  eninetype: MyString
+  manufacturer: MyString
+  model: MyString
+  User_id: 
+
+two:
+  name: MyString
+  notes: MyString
+  eninetype: MyString
+  manufacturer: MyString
+  model: MyString
+  User_id: 

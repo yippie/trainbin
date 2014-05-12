@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modelnumber: MyString
+  notes: MyString
+  scale: MyString
+  enginetype: MyString
+  roadnumber: MyString
+  own: false
+  User_id: 
+  Manufacturer_id: 
+  Prototype_id: 
+  Railroad_id: 
+
+two:
+  modelnumber: MyString
+  notes: MyString
+  scale: MyString
+  enginetype: MyString
+  roadnumber: MyString
+  own: false
+  User_id: 
+  Manufacturer_id: 
+  Prototype_id: 
+  Railroad_id: 

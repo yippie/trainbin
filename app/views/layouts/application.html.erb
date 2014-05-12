@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traindb</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "bootstrap.min" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "jquery-1.9.1.min" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" >Train Bin</a>
+          </div>
+          <div class="collapse navbar-collapse nav-responsive-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li id="nav_engines"><%= link_to "Engines", engines_path %></li>
+              <li id="nav_engines"><%= link_to "Cars", cars_path %></li>
+              <li id="nav_engines"><%= link_to "Track", tracks_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><div><%= link_to 'Profile', current_user, :class => 'btn btn-default navbar-btn' %></div></li>
+                <li><div><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-default navbar-btn'  %></div></li>
+              <% else %>
+                <li><div><%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-default navbar-btn'  %></div></li>
+                <li><div><%= link_to "Login", new_user_session_path, :class => 'btn btn-default navbar-btn'  %></div></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+    	<!-- alerts needed for devise -->
+  		<p class="notice"><%= notice %></p>
+  		<p class="alert"><%= alert %></p>
+    	<%= yield %>
+    </div>
+    <footer>
+	    <div class="container" style="text-align: center;">
+        <br/>
+        <p><a href="http://asmallorange.com/?KAI2012ASO&amp;a_aid=KAI2012ASO&amp;a_bid=909030ae" target="_top"><img src="http://affiliates.asmallorange.com/accounts/default1/banners/ASO-Banner-Designs-AN--retargeting--468-x-60-.gif" alt="" title="" width="468" height="60" /></a><img style="border:0" src="http://affiliates.asmallorange.com/scripts/imp.php?a_aid=KAI2012ASO&amp;a_bid=909030ae" width="1" height="1" alt="" /></p>
+        <p>amndsn.com 2013</p>
+      </div>
+	</footer>
+
+</body>
+</html>

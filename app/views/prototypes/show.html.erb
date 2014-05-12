@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @prototype.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @prototype.notes %>
+</p>
+
+<p>
+  <strong>Eninetype:</strong>
+  <%= @prototype.eninetype %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @prototype.manufacturer %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @prototype.model %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @prototype.User %>
+</p>
+
+<%= link_to 'Edit', edit_prototype_path(@prototype) %> |
+<%= link_to 'Back', prototypes_path %>

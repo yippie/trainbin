@@ -1,0 +1,57 @@
+<%= form_for(@engine) do |f| %>
+  <% if @engine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@engine.errors.count, "error") %> prohibited this engine from being saved:</h2>
+
+      <ul>
+      <% @engine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :modelnumber %><br>
+    <%= f.text_field :modelnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :scale %><br>
+    <%= f.text_field :scale %>
+  </div>
+  <div class="field">
+    <%= f.label :enginetype %><br>
+    <%= f.text_field :enginetype %>
+  </div>
+  <div class="field">
+    <%= f.label :roadnumber %><br>
+    <%= f.text_field :roadnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :own %><br>
+    <%= f.check_box :own %>
+  </div>
+  <div class="field">
+    <%= f.label :User_id %><br>
+    <%= f.text_field :User_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Manufacturer_id %><br>
+    <%= f.text_field :Manufacturer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Prototype_id %><br>
+    <%= f.text_field :Prototype_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Railroad_id %><br>
+    <%= f.text_field :Railroad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

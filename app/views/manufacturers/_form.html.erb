@@ -1,0 +1,37 @@
+<%= form_for(@manufacturer) do |f| %>
+  <% if @manufacturer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being saved:</h2>
+
+      <ul>
+      <% @manufacturer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :control %><br>
+    <%= f.check_box :control %>
+  </div>
+  <div class="field">
+    <%= f.label :track %><br>
+    <%= f.check_box :track %>
+  </div>
+  <div class="field">
+    <%= f.label :trains %><br>
+    <%= f.check_box :trains %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
