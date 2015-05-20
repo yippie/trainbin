@@ -5,7 +5,7 @@ class RailroadsController < ApplicationController
   # GET /railroads
   # GET /railroads.json
   def index
-    @railroads = Railroad.all
+    @railroads = Railroad.owner(current_user)
   end
 
   # GET /railroads/1
@@ -28,6 +28,7 @@ class RailroadsController < ApplicationController
     @railroad = Railroad.new(railroad_params)
 
     respond_to do |format|
+      @railroad.User_id = current_user.id
       if @railroad.save
         format.html { redirect_to @railroad, notice: 'Railroad was successfully created.' }
         format.json { render :show, status: :created, location: @railroad }
@@ -65,7 +66,7 @@ class RailroadsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_railroad
-      @railroad = Railroad.find(params[:id])
+      @railroad = Railroad.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

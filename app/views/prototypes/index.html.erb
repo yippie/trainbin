@@ -1,14 +1,13 @@
 <h1>Listing prototypes</h1>
 
-<table>
+<div class="table-responsive">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Notes</th>
-      <th>Eninetype</th>
-      <th>Manufacturer</th>
-      <th>Model</th>
-      <th>User</th>
+      <th><%= Prototype.human_attribute_name("name") %></th>
+      <th><%= Prototype.human_attribute_name("enginetype") %></th>
+      <th><%= Prototype.human_attribute_name("manufacturer") %></th>
+      <th><%= Prototype.human_attribute_name("model") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +16,9 @@
     <% @prototypes.each do |prototype| %>
       <tr>
         <td><%= prototype.name %></td>
-        <td><%= prototype.notes %></td>
-        <td><%= prototype.eninetype %></td>
+        <td><%= prototype.enginetype %></td>
         <td><%= prototype.manufacturer %></td>
         <td><%= prototype.model %></td>
-        <td><%= prototype.User %></td>
         <td><%= link_to 'Show', prototype %></td>
         <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
         <td><%= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,6 +26,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 

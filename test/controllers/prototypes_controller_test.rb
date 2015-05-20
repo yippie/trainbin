@@ -2,7 +2,9 @@ require 'test_helper'
 
 class PrototypesControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
     @prototype = prototypes(:one)
+    @prototype.User_id = @user.id;
   end
 
   test "should get index" do
@@ -18,7 +20,7 @@ class PrototypesControllerTest < ActionController::TestCase
 
   test "should create prototype" do
     assert_difference('Prototype.count') do
-      post :create, prototype: { User_id: @prototype.User_id, eninetype: @prototype.eninetype, manufacturer: @prototype.manufacturer, model: @prototype.model, name: @prototype.name, notes: @prototype.notes }
+      post :create, prototype: { User_id: @prototype.User_id, enginetype: @prototype.enginetype, manufacturer: @prototype.manufacturer, model: @prototype.model, name: @prototype.name, notes: @prototype.notes }
     end
 
     assert_redirected_to prototype_path(assigns(:prototype))
@@ -35,7 +37,7 @@ class PrototypesControllerTest < ActionController::TestCase
   end
 
   test "should update prototype" do
-    patch :update, id: @prototype, prototype: { User_id: @prototype.User_id, eninetype: @prototype.eninetype, manufacturer: @prototype.manufacturer, model: @prototype.model, name: @prototype.name, notes: @prototype.notes }
+    patch :update, id: @prototype, prototype: { User_id: @prototype.User_id, enginetype: @prototype.enginetype, manufacturer: @prototype.manufacturer, model: @prototype.model, name: @prototype.name, notes: @prototype.notes }
     assert_redirected_to prototype_path(assigns(:prototype))
   end
 

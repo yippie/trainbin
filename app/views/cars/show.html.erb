@@ -1,43 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Modelnumber:</strong>
+  <strong><%= Car.human_attribute_name("name") %>:</strong>
+  <%= @car.name %>
+</p>
+
+<p>
+  <strong><%= Car.human_attribute_name("modelnumber") %>:</strong>
   <%= @car.modelnumber %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= Car.human_attribute_name("notes") %>:</strong>
   <%= @car.notes %>
 </p>
 
 <p>
-  <strong>Scale:</strong>
+  <strong><%= Car.human_attribute_name("scale") %>:</strong>
   <%= @car.scale %>
 </p>
 
 <p>
-  <strong>Cartype:</strong>
+  <strong><%= Car.human_attribute_name("cartype") %>:</strong>
   <%= @car.cartype %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong><%= Car.human_attribute_name("quantity") %>:</strong>
   <%= @car.quantity %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @car.User %>
+  <strong><%= Car.human_attribute_name("Manufacturer") %>:</strong>
+  <%= @car.Manufacturer.name %>
 </p>
 
 <p>
-  <strong>Manufacturer:</strong>
-  <%= @car.Manufacturer %>
-</p>
-
-<p>
-  <strong>Railroad:</strong>
-  <%= @car.Railroad %>
+  <strong><%= Car.human_attribute_name("Railroad") %>:</strong>
+  <%= @car.Railroad.name %>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |

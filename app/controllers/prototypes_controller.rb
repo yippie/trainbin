@@ -1,11 +1,12 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
+  before_action :build_picklists, only: [:new , :edit]
 
   # GET /prototypes
   # GET /prototypes.json
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.owner(current_user)
   end
 
   # GET /prototypes/1
@@ -28,6 +29,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(prototype_params)
 
     respond_to do |format|
+      @prototype.User_id = current_user.id
       if @prototype.save
         format.html { redirect_to @prototype, notice: 'Prototype was successfully created.' }
         format.json { render :show, status: :created, location: @prototype }
@@ -65,11 +67,15 @@ class PrototypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prototype
-      @prototype = Prototype.find(params[:id])
+      @prototype = Prototype.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prototype_params
-      params.require(:prototype).permit(:name, :notes, :eninetype, :manufacturer, :model, :User_id)
+      params.require(:prototype).permit(:name, :notes, :enginetype, :manufacturer, :model, :User_id)
+    end
+
+    def build_picklists
+      @manufacturer_array = Manufacturer.owner(current_user)
     end
 end

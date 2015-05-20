@@ -5,7 +5,7 @@ class CreateManufacturers < ActiveRecord::Migration
       t.boolean :control
       t.boolean :track
       t.boolean :trains
-      t.references :user, index: true
+      t.references :User, index: true
 
       t.timestamps
     end

@@ -3,7 +3,7 @@ class CreatePrototypes < ActiveRecord::Migration
     create_table :prototypes do |t|
       t.string :name
       t.string :notes
-      t.string :eninetype
+      t.string :enginetype
       t.string :manufacturer
       t.string :model
       t.references :User, index: true

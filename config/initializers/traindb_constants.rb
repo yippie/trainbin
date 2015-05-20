@@ -1,2 +1,4 @@
 SCALES = ['Z', 'N', 'HOn3', 'HO', 'O', 'G']
-MANUFACTURERS = ['EMD', 'GE']
+ENGINETYPES = ['Diesel','Electric','Steam']
+TRACKTYPES = ['Straight','Curve','Turnout','Other']
+CARTYPES = ['Freight','Passenger','Other']

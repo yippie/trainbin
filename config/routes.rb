@@ -11,14 +11,16 @@ Rails.application.routes.draw do
 
   resources :manufacturers
 
-  get 'home/index'
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  # Override devise user show option
   resources :users, :only => [:show]
-  #get '/users/:id', :to => 'users#show', :as => :user
+
   # You can have the root of your site routed with "root"
+  get 'home/about'
+  get 'home/index'
   root 'home#index'
 
   # Example of regular route:

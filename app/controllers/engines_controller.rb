@@ -1,11 +1,12 @@
 class EnginesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_engine, only: [:show, :edit, :update, :destroy]
+  before_action :build_picklists, only: [:new , :edit]
 
   # GET /engines
   # GET /engines.json
   def index
-    @engines = Engine.all
+    @engines = Engine.owner(current_user)
   end
 
   # GET /engines/1
@@ -28,6 +29,7 @@ class EnginesController < ApplicationController
     @engine = Engine.new(engine_params)
 
     respond_to do |format|
+      @engine.User_id = current_user.id
       if @engine.save
         format.html { redirect_to @engine, notice: 'Engine was successfully created.' }
         format.json { render :show, status: :created, location: @engine }
@@ -65,11 +67,17 @@ class EnginesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_engine
-      @engine = Engine.find(params[:id])
+      @engine = Engine.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def engine_params
       params.require(:engine).permit(:modelnumber, :notes, :scale, :enginetype, :roadnumber, :own, :User_id, :Manufacturer_id, :Prototype_id, :Railroad_id)
+    end
+
+    def build_picklists
+      @manufacturer_array = Manufacturer.owner(current_user)
+      @prototype_array = Prototype.owner(current_user)
+      @railroad_array = Railroad.owner(current_user)
     end
 end

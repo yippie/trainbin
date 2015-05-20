@@ -5,6 +5,13 @@
   <%= @user.email %>
 </p>
 
+<strong>Settings</strong>
+<ul>
+	<li><%= link_to "Manufacturers", manufacturers_path %></li>
+	<li><%= link_to "Prototypes", prototypes_path %></li>
+	<li><%= link_to "Railroads", railroads_path %></li>
+</ul>
+
 <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'btn btn-default' %>
 <br/>
 <%= link_to "Back", :back %>

@@ -5,7 +5,7 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.owner(current_user)
   end
 
   # GET /manufacturers/1
@@ -28,6 +28,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
 
     respond_to do |format|
+      @manufacturer.User_id = current_user.id
       if @manufacturer.save
         format.html { redirect_to @manufacturer, notice: 'Manufacturer was successfully created.' }
         format.json { render :show, status: :created, location: @manufacturer }
@@ -65,11 +66,11 @@ class ManufacturersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_manufacturer
-      @manufacturer = Manufacturer.find(params[:id])
+      @manufacturer = Manufacturer.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manufacturer_params
-      params.require(:manufacturer).permit(:name, :control, :track, :trains, :user_id)
+      params.require(:manufacturer).permit(:name, :control, :track, :trains, :User_id)
     end
 end

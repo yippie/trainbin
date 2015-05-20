@@ -1,13 +1,12 @@
 <h1>Listing manufacturers</h1>
-
-<table>
+<div class="table-responsive">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Control</th>
-      <th>Track</th>
-      <th>Trains</th>
-      <th>User</th>
+      <th><%= Manufacturer.human_attribute_name("name") %></th>
+      <th><%= Manufacturer.human_attribute_name("control") %></th>
+      <th><%= Manufacturer.human_attribute_name("track") %></th>
+      <th><%= Manufacturer.human_attribute_name("trains") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +18,6 @@
         <td><%= manufacturer.control %></td>
         <td><%= manufacturer.track %></td>
         <td><%= manufacturer.trains %></td>
-        <td><%= manufacturer.user %></td>
         <td><%= link_to 'Show', manufacturer %></td>
         <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
         <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,6 +25,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 

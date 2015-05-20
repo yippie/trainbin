@@ -1,36 +1,37 @@
 <p>
-  <strong>Partnumber:</strong>
+  <strong><%= Track.human_attribute_name("name") %>:</strong>
+  <%= @track.name %>
+</p>
+
+<p>
+  <strong><%= Track.human_attribute_name("partnumber") %>:</strong>
   <%= @track.partnumber %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= Track.human_attribute_name("notes") %>:</strong>
   <%= @track.notes %>
 </p>
 
 <p>
-  <strong>Scale:</strong>
+  <strong><%= Track.human_attribute_name("scale") %>:</strong>
   <%= @track.scale %>
 </p>
 
 <p>
-  <strong>Tracktype:</strong>
+  <strong><%= Track.human_attribute_name("tracktype") %>:</strong>
   <%= @track.tracktype %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong><%= Track.human_attribute_name("quantity") %>:</strong>
   <%= @track.quantity %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @track.User %>
-</p>
 
 <p>
-  <strong>Manufacturer:</strong>
-  <%= @track.Manufacturer %>
+  <strong><%= Track.human_attribute_name("Manufacturer") %>:</strong>
+  <%= @track.Manufacturer.name %>
 </p>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |

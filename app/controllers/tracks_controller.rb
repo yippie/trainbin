@@ -1,11 +1,12 @@
 class TracksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_track, only: [:show, :edit, :update, :destroy]
+  before_action :build_picklists, only: [:new , :edit]
 
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = Track.owner(current_user)
   end
 
   # GET /tracks/1
@@ -28,6 +29,7 @@ class TracksController < ApplicationController
     @track = Track.new(track_params)
 
     respond_to do |format|
+      @track.User_id = current_user.id
       if @track.save
         format.html { redirect_to @track, notice: 'Track was successfully created.' }
         format.json { render :show, status: :created, location: @track }
@@ -65,11 +67,15 @@ class TracksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_track
-      @track = Track.find(params[:id])
+      @track = Track.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def track_params
-      params.require(:track).permit(:partnumber, :notes, :scale, :tracktype, :quantity, :User_id, :Manufacturer_id)
+      params.require(:track).permit(:name, :partnumber, :notes, :scale, :tracktype, :quantity, :User_id, :Manufacturer_id)
+    end
+
+    def build_picklists
+      @manufacturer_array = Manufacturer.owner(current_user)
     end
 end

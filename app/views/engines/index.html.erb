@@ -1,18 +1,17 @@
 <h1>Listing engines</h1>
 
-<table>
+<div class="table-responsive">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Modelnumber</th>
-      <th>Notes</th>
-      <th>Scale</th>
-      <th>Enginetype</th>
-      <th>Roadnumber</th>
-      <th>Own</th>
-      <th>User</th>
-      <th>Manufacturer</th>
-      <th>Prototype</th>
-      <th>Railroad</th>
+      <th><%= Engine.human_attribute_name("modelnumber") %></th>
+      <th><%= Engine.human_attribute_name("scale") %></th>
+      <th><%= Engine.human_attribute_name("enginetype") %></th>
+      <th><%= Engine.human_attribute_name("roadnumber") %></th>
+      <th><%= Engine.human_attribute_name("own") %></th>
+      <th><%= Engine.human_attribute_name("Manufacturer") %></th>
+      <th><%= Engine.human_attribute_name("Prototype") %></th>
+      <th><%= Engine.human_attribute_name("Railroad") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,15 +20,13 @@
     <% @engines.each do |engine| %>
       <tr>
         <td><%= engine.modelnumber %></td>
-        <td><%= engine.notes %></td>
         <td><%= engine.scale %></td>
         <td><%= engine.enginetype %></td>
         <td><%= engine.roadnumber %></td>
-        <td><%= engine.own %></td>
-        <td><%= engine.User %></td>
-        <td><%= engine.Manufacturer %></td>
-        <td><%= engine.Prototype %></td>
-        <td><%= engine.Railroad %></td>
+        <td><%= check_box "engine", "own", {:checked => engine.own, :disabled => true}%></td>
+        <td><%= engine.Manufacturer.name %></td>
+        <td><%= engine.Prototype.name %></td>
+        <td><%= engine.Railroad.name %></td>
         <td><%= link_to 'Show', engine %></td>
         <td><%= link_to 'Edit', edit_engine_path(engine) %></td>
         <td><%= link_to 'Destroy', engine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,6 +34,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 

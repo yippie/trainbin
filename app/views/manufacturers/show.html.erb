@@ -1,29 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Manufacturer.human_attribute_name("name") %>:</strong>
   <%= @manufacturer.name %>
 </p>
 
 <p>
-  <strong>Control:</strong>
+  <strong><%= Manufacturer.human_attribute_name("control") %>:</strong>
   <%= @manufacturer.control %>
 </p>
 
 <p>
-  <strong>Track:</strong>
+  <strong><%= Manufacturer.human_attribute_name("track") %>:</strong>
   <%= @manufacturer.track %>
 </p>
 
 <p>
-  <strong>Trains:</strong>
+  <strong><%= Manufacturer.human_attribute_name("trains") %>:</strong>
   <%= @manufacturer.trains %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @manufacturer.user %>
-</p>
 
 <%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
 <%= link_to 'Back', manufacturers_path %>

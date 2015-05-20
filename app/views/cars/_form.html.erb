@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :modelnumber %><br>
     <%= f.text_field :modelnumber %>
   </div>
@@ -21,27 +25,23 @@
   </div>
   <div class="field">
     <%= f.label :scale %><br>
-    <%= f.text_field :scale %>
+    <%= f.select( :scale , SCALES ) %>
   </div>
   <div class="field">
     <%= f.label :cartype %><br>
-    <%= f.text_field :cartype %>
+    <%= f.select( :cartype , CARTYPES ) %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
-  </div>
-  <div class="field">
     <%= f.label :Manufacturer_id %><br>
-    <%= f.text_field :Manufacturer_id %>
+    <%= f.collection_select :Manufacturer_id , @manufacturer_array, :id , :name %>
   </div>
   <div class="field">
     <%= f.label :Railroad_id %><br>
-    <%= f.text_field :Railroad_id %>
+    <%= f.collection_select :Railroad_id , @railroad_array, :id , :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

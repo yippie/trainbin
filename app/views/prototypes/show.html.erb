@@ -1,34 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Prototype.human_attribute_name("name") %>:</strong>
   <%= @prototype.name %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= Prototype.human_attribute_name("notes") %>:</strong>
   <%= @prototype.notes %>
 </p>
 
 <p>
-  <strong>Eninetype:</strong>
-  <%= @prototype.eninetype %>
+  <strong><%= Prototype.human_attribute_name("enginetype") %>:</strong>
+  <%= @prototype.enginetype %>
 </p>
 
 <p>
-  <strong>Manufacturer:</strong>
+  <strong><%= Prototype.human_attribute_name("manufacturer") %>:</strong>
   <%= @prototype.manufacturer %>
 </p>
 
 <p>
-  <strong>Model:</strong>
+  <strong><%= Prototype.human_attribute_name("model") %>:</strong>
   <%= @prototype.model %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @prototype.User %>
-</p>
 
 <%= link_to 'Edit', edit_prototype_path(@prototype) %> |
 <%= link_to 'Back', prototypes_path %>

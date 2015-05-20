@@ -1,4 +1,8 @@
 class Track < ActiveRecord::Base
-  belongs_to :User
-  belongs_to :Manufacturer
+	def self.owner(user)
+	    where("user_id = ?", user.id)
+	end
+
+	belongs_to :User
+	belongs_to :Manufacturer
 end

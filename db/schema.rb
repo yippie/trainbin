@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509005950) do
+ActiveRecord::Schema.define(version: 20140608175304) do
 
   create_table "cars", force: true do |t|
     t.string   "modelnumber"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140509005950) do
     t.integer  "Railroad_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "cars", ["Manufacturer_id"], name: "index_cars_on_Manufacturer_id"
@@ -55,17 +56,17 @@ ActiveRecord::Schema.define(version: 20140509005950) do
     t.boolean  "control"
     t.boolean  "track"
     t.boolean  "trains"
-    t.integer  "user_id"
+    t.integer  "User_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "manufacturers", ["user_id"], name: "index_manufacturers_on_user_id"
+  add_index "manufacturers", ["User_id"], name: "index_manufacturers_on_User_id"
 
   create_table "prototypes", force: true do |t|
     t.string   "name"
     t.string   "notes"
-    t.string   "eninetype"
+    t.string   "enginetype"
     t.string   "manufacturer"
     t.string   "model"
     t.integer  "User_id"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 20140509005950) do
     t.integer  "Manufacturer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "tracks", ["Manufacturer_id"], name: "index_tracks_on_Manufacturer_id"

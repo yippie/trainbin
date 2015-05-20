@@ -20,8 +20,8 @@
     <%= f.text_field :notes %>
   </div>
   <div class="field">
-    <%= f.label :eninetype %><br>
-    <%= f.text_field :eninetype %>
+    <%= f.label :enginetype %><br>
+    <%= f.select( :enginetype, ENGINETYPES ) %>
   </div>
   <div class="field">
     <%= f.label :manufacturer %><br>
@@ -30,10 +30,6 @@
   <div class="field">
     <%= f.label :model %><br>
     <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,3 +1,7 @@
 class Prototype < ActiveRecord::Base
-  belongs_to :User
+	def self.owner(user)
+	    where("user_id = ?", user.id)
+	end
+
+	belongs_to :User
 end

@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      engine:
+        modelnumber: Model Number
+        enginetype: Engine Type
+        roadnumber: Road Number
+      car:
+        modelnumber: Model Number
+        cartype: Car Type
+      track:
+        partnumber: Part Number
+        tracktype: Track Type
+      prototype:
+        enginetype: Engine Type

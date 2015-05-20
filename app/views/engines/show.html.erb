@@ -1,53 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Modelnumber:</strong>
+  <strong><%= Engine.human_attribute_name("modelnumber") %>:<strong/>
   <%= @engine.modelnumber %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= Engine.human_attribute_name("notes") %>:</strong>
   <%= @engine.notes %>
 </p>
 
 <p>
-  <strong>Scale:</strong>
+  <strong><%= Engine.human_attribute_name("scale") %>:</strong>
   <%= @engine.scale %>
 </p>
 
 <p>
-  <strong>Enginetype:</strong>
+  <strong><%= Engine.human_attribute_name("enginetype") %>:</strong>
   <%= @engine.enginetype %>
 </p>
 
 <p>
-  <strong>Roadnumber:</strong>
+  <strong><%= Engine.human_attribute_name("roadnumber") %>:</strong>
   <%= @engine.roadnumber %>
 </p>
 
 <p>
-  <strong>Own:</strong>
-  <%= @engine.own %>
+  <strong><%= Engine.human_attribute_name("own") %>:</strong>
+  <% if @engine.own then%>
+    <span class="glyphicon glyphicon-ok"></span>
+  <% end %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @engine.User %>
+  <strong><%= Engine.human_attribute_name("Manufacturer") %>:</strong>
+  <%= @engine.Manufacturer.name %>
 </p>
 
 <p>
-  <strong>Manufacturer:</strong>
-  <%= @engine.Manufacturer %>
+  <strong><%= Engine.human_attribute_name("Prototype") %>:</strong>
+  <%= @engine.Prototype.name %>
 </p>
 
 <p>
-  <strong>Prototype:</strong>
-  <%= @engine.Prototype %>
-</p>
-
-<p>
-  <strong>Railroad:</strong>
-  <%= @engine.Railroad %>
+  <strong><%= Engine.human_attribute_name("Railroad") %>:</strong>
+  <%= @engine.Railroad.name %>
 </p>
 
 <%= link_to 'Edit', edit_engine_path(@engine) %> |

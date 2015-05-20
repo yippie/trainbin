@@ -1,11 +1,12 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :build_picklists, only: [:new , :edit]
 
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+    @cars = Car.owner(current_user)
   end
 
   # GET /cars/1
@@ -28,6 +29,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
 
     respond_to do |format|
+      @car.User_id = current_user.id
       if @car.save
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
@@ -65,11 +67,16 @@ class CarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
-      @car = Car.find(params[:id])
+      @car = Car.owner(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:modelnumber, :notes, :scale, :cartype, :quantity, :User_id, :Manufacturer_id, :Railroad_id)
+      params.require(:car).permit(:name, :modelnumber, :notes, :scale, :cartype, :quantity, :User_id, :Manufacturer_id, :Railroad_id)
+    end
+
+    def build_picklists
+      @manufacturer_array = Manufacturer.owner(current_user)
+      @railroad_array = Railroad.owner(current_user)
     end
 end

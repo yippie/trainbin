@@ -3,15 +3,15 @@
 one:
   name: MyString
   notes: MyString
-  eninetype: MyString
+  enginetype: MyString
   manufacturer: MyString
   model: MyString
-  User_id: 
+  User_id:
 
 two:
   name: MyString
   notes: MyString
-  eninetype: MyString
+  enginetype: MyString
   manufacturer: MyString
   model: MyString
-  User_id: 
+  User_id:

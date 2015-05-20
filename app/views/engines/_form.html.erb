@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :scale %><br>
-    <%= f.text_field :scale %>
+    <%= f.select( :scale , SCALES ) %>
   </div>
   <div class="field">
     <%= f.label :enginetype %><br>
-    <%= f.text_field :enginetype %>
+    <%= f.select( :enginetype, ENGINETYPES ) %>
   </div>
   <div class="field">
     <%= f.label :roadnumber %><br>
@@ -36,20 +36,16 @@
     <%= f.check_box :own %>
   </div>
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
-  </div>
-  <div class="field">
     <%= f.label :Manufacturer_id %><br>
-    <%= f.text_field :Manufacturer_id %>
+    <%= f.collection_select :Manufacturer_id , @manufacturer_array, :id , :name %>
   </div>
   <div class="field">
     <%= f.label :Prototype_id %><br>
-    <%= f.text_field :Prototype_id %>
+    <%= f.collection_select :Prototype_id , @prototype_array, :id , :name %>
   </div>
   <div class="field">
     <%= f.label :Railroad_id %><br>
-    <%= f.text_field :Railroad_id %>
+    <%= f.collection_select :Railroad_id , @railroad_array, :id , :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

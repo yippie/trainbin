@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :partnumber %><br>
     <%= f.text_field :partnumber %>
   </div>
@@ -21,23 +25,19 @@
   </div>
   <div class="field">
     <%= f.label :scale %><br>
-    <%= f.text_field :scale %>
+    <%= f.select( :scale , SCALES ) %>
   </div>
   <div class="field">
     <%= f.label :tracktype %><br>
-    <%= f.text_field :tracktype %>
+    <%= f.select( :tracktype , TRACKTYPES ) %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
-  </div>
-  <div class="field">
     <%= f.label :Manufacturer_id %><br>
-    <%= f.text_field :Manufacturer_id %>
+    <%= f.collection_select :Manufacturer_id , @manufacturer_array, :id , :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

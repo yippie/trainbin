@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Traindb</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    "bootstrap.min" %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "jquery-1.9.1.min" %>
-  <%= javascript_include_tag "bootstrap.min" %>
+  <title>Train Bin</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top">
@@ -22,9 +19,12 @@
           </div>
           <div class="collapse navbar-collapse nav-responsive-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li id="nav_engines"><%= link_to "Engines", engines_path %></li>
-              <li id="nav_engines"><%= link_to "Cars", cars_path %></li>
-              <li id="nav_engines"><%= link_to "Track", tracks_path %></li>
+              <% if user_signed_in? %>
+                <li id="nav_engines"><%= link_to "Engines", engines_path %></li>
+                <li id="nav_cars"><%= link_to "Cars", cars_path %></li>
+                <li id="nav_track"><%= link_to "Track", tracks_path %></li>
+              <% end %>
+                <li id="nav_about"><a href="/home/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
@@ -47,10 +47,8 @@
     <footer>
 	    <div class="container" style="text-align: center;">
         <br/>
-        <p><a href="http://asmallorange.com/?KAI2012ASO&amp;a_aid=KAI2012ASO&amp;a_bid=909030ae" target="_top"><img src="http://affiliates.asmallorange.com/accounts/default1/banners/ASO-Banner-Designs-AN--retargeting--468-x-60-.gif" alt="" title="" width="468" height="60" /></a><img style="border:0" src="http://affiliates.asmallorange.com/scripts/imp.php?a_aid=KAI2012ASO&amp;a_bid=909030ae" width="1" height="1" alt="" /></p>
         <p>amndsn.com 2013</p>
       </div>
 	</footer>
-
 </body>
 </html>
